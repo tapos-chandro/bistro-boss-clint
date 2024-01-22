@@ -14,7 +14,9 @@ const SectionTitle = ({mainTitle, subTitle}) => {
 };
 
 SectionTitle.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
+  mainTitle: PropTypes.any,
+  subTitle: PropTypes.any
 }
 
 export default SectionTitle;
