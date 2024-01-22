@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Banner = () => {
     return (
-        <Carousel className="-mt-[100px]">
+        <Carousel className="-mt-[100px]" autoPlay={true} infiniteLoop={true} stopOnHover={false}>
         <div className="">
             <img src="https://i.postimg.cc/VLdHB0b6/01.jpg"  />
         </div >
