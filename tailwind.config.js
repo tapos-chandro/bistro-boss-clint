@@ -7,7 +7,8 @@ export default {
   theme: {
     colors:{
       'footer-bg-one':'#1F2937',
-      'footer-bg-tow':'#111827'
+      'footer-bg-tow':'#111827',
+      'primary-text': '#fff'
     }
   },
  

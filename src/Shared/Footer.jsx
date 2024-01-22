@@ -37,6 +37,9 @@ const Footer = () => {
                     </div>
                 </nav>
             </footer>
+            <aside className="bg-[#151515] py-3">
+                <p className="text-center">Copyright © CulinaryCloud. All rights reserved.</p>
+            </aside>
         </div>
     );
 };
