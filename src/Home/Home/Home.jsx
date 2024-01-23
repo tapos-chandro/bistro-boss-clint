@@ -6,6 +6,7 @@ import RecommendsItems from './RecommendsItems/RecommendsItems'
 
 import PopularMenu from './PopularMenu/PopularMenu'
 import Feature from './Feature/Feature'
+import Testimonials from './Testimonials/Testimonials'
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <CallUs></CallUs>
         <RecommendsItems></RecommendsItems>
         <Feature></Feature>
+        <Testimonials></Testimonials>
       </div>
     </div>
   )
