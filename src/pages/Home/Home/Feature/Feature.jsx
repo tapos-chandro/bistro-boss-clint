@@ -1,4 +1,4 @@
-import featureImage from '../../../../src/assets/home/featured.jpg'
+import featureImage from '../../../../assets/home/featured.jpg'
 
 
 const Feature = () => {

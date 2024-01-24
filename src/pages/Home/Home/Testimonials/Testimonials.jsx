@@ -3,10 +3,10 @@ import 'swiper/css/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import { useEffect, useState } from 'react'
-import SectionTitle from '../../../components/SectionTitle'
 import '@smastrom/react-rating/style.css'
 import { Rating } from '@smastrom/react-rating'
 import { BiSolidQuoteLeft } from "react-icons/bi";
+import SectionTitle from '../../../../components/SectionTitle'
 
 
 const Testimonials = () => {
@@ -20,7 +20,7 @@ const Testimonials = () => {
       })
   }, [])
 
-  console.log(review)
+
   return (
     <section className='py-20'>
       <SectionTitle

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "../../../components/SectionTitle";
 import RecommendsItem from "./RecommendsItem/RecommendsItem";
+import SectionTitle from "../../../../components/SectionTitle";
 
 
 
