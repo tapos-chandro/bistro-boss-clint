@@ -36,24 +36,24 @@ const Menu = () => {
 
       <div className="mt-20">
         <SectionTitle subTitle="---Don't miss---" mainTitle="TODAY'S OFFER"></SectionTitle>
-        <MenuCategory items={offered} buttonText='ORDER YOUR FAVOURITE FOOD'></MenuCategory>
+        <MenuCategory items={offered} buttonText='ORDER YOUR FAVORITE FOOD'></MenuCategory>
       </div>
 
       <div className="mt-20">
-        <Cover backgroundImg={dessertCoverBg} heading='DESSERTS' bgColor='#15151599' fontColor='#fff' paragraph={desserts}></Cover>
-        <MenuCategory items={offered} buttonText='ORDER YOUR FAVOURITE FOOD'></MenuCategory>
+        <Cover backgroundImg={dessertCoverBg} heading='DESSERTS'  bgColor='#15151599' fontColor='#fff' paragraph={desserts}></Cover>
+        <MenuCategory items={offered} buttonText='ORDER YOUR FAVORITE FOOD' title='desserts'></MenuCategory>
       </div>
       <div className="mt-20">
-        <Cover backgroundImg={pizzaCoverBg} heading='PIZZA' bgColor='#15151599' fontColor='#fff' paragraph={pizzaCoverText}></Cover>
-        <MenuCategory items={pizza} buttonText='ORDER YOUR FAVOURITE FOOD'></MenuCategory>
+        <Cover backgroundImg={pizzaCoverBg} heading='PIZZA'  bgColor='#15151599' fontColor='#fff' paragraph={pizzaCoverText}></Cover>
+        <MenuCategory items={pizza} buttonText='ORDER YOUR FAVORITE FOOD' title='pizza'></MenuCategory>
       </div>
       <div className="mt-20">
-        <Cover backgroundImg={pizzaCoverBg} heading='SALAD' bgColor='#15151599' fontColor='#fff' paragraph={saladCoverText}></Cover>
-        <MenuCategory items={salad} buttonText='ORDER YOUR FAVOURITE FOOD'></MenuCategory>
+        <Cover backgroundImg={pizzaCoverBg} heading='SALAD'  bgColor='#15151599' fontColor='#fff' paragraph={saladCoverText}></Cover>
+        <MenuCategory items={salad} buttonText='ORDER YOUR FAVORITE FOOD' title='salad'></MenuCategory>
       </div>
       <div className="mt-20">
-        <Cover backgroundImg={soupCoverBg} heading='SOUP' bgColor='#15151599' fontColor='#fff' paragraph={soupCoverText}></Cover>
-        <MenuCategory items={soup} buttonText='ORDER YOUR FAVOURITE FOOD'></MenuCategory>
+        <Cover backgroundImg={soupCoverBg} heading='SOUP'  bgColor='#15151599' fontColor='#fff' paragraph={soupCoverText}></Cover>
+        <MenuCategory items={soup} buttonText='ORDER YOUR FAVORITE FOOD' title='soup'></MenuCategory>
       </div>
     </div>
   )
