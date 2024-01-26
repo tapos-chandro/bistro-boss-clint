@@ -1,3 +1,18 @@
-.active{
-    color:red;
+.react-tabs__tab--selected {
+  color: rgb(255, 149, 0) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 3px solid rgb(255, 149, 0) !important;
+  /* color:#151515; */
+}
+.react-tabs__tab {
+  /* border: 0px !important; */
+  
+  font-size: 24pxs;
+  font-weight: 500;  
+  padding: 10px 0px 5px 0px;
+  margin: 0px 10px 0px 10px;
+  cursor: pointer;
+  outline: none !important;
 }

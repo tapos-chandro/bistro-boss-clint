@@ -9,7 +9,7 @@ const NavBar = () => {
     <li className="mx-2 uppercase"><NavLink to={'/contact'} className=''>CONTACT us</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/dashboard'} className=''>DASHBOARD</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/menu'} className=''>Our Menu</NavLink></li>
-    <li className="mx-2 uppercase"><NavLink to={'shop'} className=''>Our Shop</NavLink></li>
+    <li className="mx-2 uppercase"><NavLink to={'/shop/offered'} className=''>Our Shop</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/login'} className=''>SIGN OUT</NavLink></li>
    
     </>

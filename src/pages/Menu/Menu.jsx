@@ -8,6 +8,7 @@ import Cover from "../../Shared/Cover"
 import dessertCoverBg from '../../assets/menu/dessert-bg.jpeg'
 import pizzaCoverBg from '../../assets/menu/pizza-bg.jpg'
 import soupCoverBg from '../../assets/menu/soup-bg.jpg'
+import drinksCoverBg from '../../assets/menu/drink.jpg'
 
 
 const Menu = () => {
@@ -18,6 +19,7 @@ const Menu = () => {
   const pizza = menu.filter(item => item.category === 'pizza')
   const salad = menu.filter(item => item.category === 'salad')
   const soup = menu.filter(item => item.category === 'soup')
+  const drinks = menu.filter(item => item.category === 'drinks')
   
 
 
@@ -36,7 +38,7 @@ const Menu = () => {
 
       <div className="mt-20">
         <SectionTitle subTitle="---Don't miss---" mainTitle="TODAY'S OFFER"></SectionTitle>
-        <MenuCategory items={offered} buttonText='ORDER YOUR FAVORITE FOOD'></MenuCategory>
+        <MenuCategory items={offered} buttonText='ORDER YOUR FAVORITE FOOD' title='offered'></MenuCategory>
       </div>
 
       <div className="mt-20">
@@ -54,6 +56,10 @@ const Menu = () => {
       <div className="mt-20">
         <Cover backgroundImg={soupCoverBg} heading='SOUP'  bgColor='#15151599' fontColor='#fff' paragraph={soupCoverText}></Cover>
         <MenuCategory items={soup} buttonText='ORDER YOUR FAVORITE FOOD' title='soup'></MenuCategory>
+      </div>
+      <div className="mt-20">
+        <Cover backgroundImg={drinksCoverBg} heading='DRINKS'  bgColor='#15151599' fontColor='#fff' paragraph={soupCoverText}></Cover>
+        <MenuCategory items={drinks} buttonText='ORDER YOUR FAVORITE FOOD' title='drinks'></MenuCategory>
       </div>
     </div>
   )
