@@ -7,6 +7,7 @@ import { TbClockHour3 } from "react-icons/tb";
 import emailjs from '@emailjs/browser';
 import { useRef } from "react";
 import Swal from "sweetalert2";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactUs = () => {
 
@@ -42,6 +43,10 @@ const ContactUs = () => {
           });
       };
 
+
+      const onChange = (value) =>{
+        console.log("Captcha value:", value);
+      }
 
     return (
         <div>
@@ -92,11 +97,16 @@ const ContactUs = () => {
                     <input type="email" name="email" className="w-full py-3 my-3 px-5" placeholder="Enter your email"  required/><br/>
                     <label>Message</label><br/>
                     <textarea name="message"  className="w-full py-3 my-3 px-5" placeholder="Enter your message" required/><br/>
+                    <div className="my-5">
+                    <ReCAPTCHA sitekey="Your client site key" onChange={onChange}/>
+                    </div>
                     <div className="flex justify-center">
                     <input type="submit" value="Send Message" className="px-20 py-3 cursor-pointer  text-[#F3F3F3] bg-[#D1A054] text-xl"/> 
                     </div>                                                                                         
                 </form>
+                
                 </div>
+                
             </div>
         </div>
     );

@@ -12,7 +12,8 @@ export default {
     },
     backgroundImage: {
       'bistro-banner': "url('https://i.postimg.cc/kX6ftrkR/chef-service.jpg')",
-      'feature-bg':"url('https://i.postimg.cc/fLzg3vDC/featured.jpg')"
+      'feature-bg':"url('https://i.postimg.cc/fLzg3vDC/featured.jpg')",
+      'login-bg': "url('https://i.postimg.cc/d0z2sCLh/authentication.png')"
     }
   },
  

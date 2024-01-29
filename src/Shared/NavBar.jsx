@@ -1,8 +1,19 @@
 import { NavLink, Outlet } from "react-router-dom";
 import './Navber/navbar.css'
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 
 const NavBar = () => {
+
+    const {user,logOut} = useContext(AuthContext)
+
+
+    const handleLogOut = () =>{
+        logOut()
+    }
+
     const navLinks = <>
     
     <li className="mx-2 uppercase"><NavLink to={'/'} className=''>Home</NavLink></li>
@@ -10,9 +21,18 @@ const NavBar = () => {
     <li className="mx-2 uppercase"><NavLink to={'/dashboard'} className=''>DASHBOARD</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/menu'} className=''>Our Menu</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/shop/offered'} className=''>Our Shop</NavLink></li>
-    <li className="mx-2 uppercase"><NavLink to={'/login'} className=''>SIGN OUT</NavLink></li>
+    {
+        user?.email ? <li className="mx-2 uppercase "><div className="flex"><p>{user?.displayName}</p><button onClick={handleLogOut}>Log Out</button></div></li>:
+        <li className="mx-2 uppercase"><NavLink to={'/signUp'} className=''>SIGN UP</NavLink></li>
+    }
    
     </>
+
+ 
+
+
+
+
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 

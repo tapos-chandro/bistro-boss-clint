@@ -28,7 +28,7 @@ const OurShop = () => {
   const dessert = menu?.filter(item => item.category === 'dessert')
   const drinks = menu?.filter(item => item.category === 'drinks')
 
-console.log(offered)
+
 
   const [tabIndex, setTabIndex] = useState(initialIndex)
   
