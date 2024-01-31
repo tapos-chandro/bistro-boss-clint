@@ -7,6 +7,11 @@ import ContactUs from "../pages/ContactUs/ContactUs";
 import SignUp from "../pages/SignUp/SignUp";
 import Login from "../pages/Login/Login";
 import PrivetRoute from "./PrivetRoute";
+import Dashboard from "../Layout/Dashboard";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import ManageBookings from "../pages/Dashboard/ManageBookings/ManageBookings";
+import AddItems from "../pages/Dashboard/AddItems/AddItems";
+import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 
 
 
@@ -49,4 +54,26 @@ export const router = createBrowserRouter([
 
       ]
     },
+    {
+      path:"/dashboard",
+      element:<Dashboard></Dashboard>,
+      children:[
+        {
+          path:"manageItems",
+          element:<ManageItems></ManageItems>
+        },
+        {
+          path:"home",
+          element:<AdminHome></AdminHome>
+        },
+        {
+          path:"booking",
+          element:<ManageBookings></ManageBookings>
+        },
+        {
+          path:"addItems",
+          element:<AddItems></AddItems>
+        },
+      ]
+    }
   ]);

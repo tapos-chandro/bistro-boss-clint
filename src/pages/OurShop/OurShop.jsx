@@ -11,7 +11,6 @@ import { useState } from 'react';
 const OurShop = () => {
  
 
-
   const [menu] = useMenu()
 
   const category = ['offered','salad', 'pizza','soup','desserts','drinks']

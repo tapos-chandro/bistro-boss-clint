@@ -7,17 +7,26 @@ import '@smastrom/react-rating/style.css'
 import { Rating } from '@smastrom/react-rating'
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import SectionTitle from '../../../../components/SectionTitle'
+import useAxiosSecure from '../../../../hoocks/useAxiosSecure'
+
 
 
 const Testimonials = () => {
   const [review, setReview] = useState([])
+  const axiosSecure = useAxiosSecure()
 
   useEffect(() => {
-    fetch('reviews.json')
-      .then(res => res.json())
-      .then(data => {
-        setReview(data)
-      })
+    // fetch('reviews.json')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     setReview(data)
+    //   })
+
+    axiosSecure.get('/reviews')
+    .then(data => {
+      setReview(data.data)
+    })
+    
   }, [])
 
 

@@ -75,6 +75,11 @@ const SignUp = () => {
 
     const handleGoogleLogin = () =>{
         googleSignUp()
+          .then(result => {
+            if(result){
+                navigate('/shop/offered')
+            }
+        })
     }
 
 

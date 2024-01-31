@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import RecommendsItem from "./RecommendsItem/RecommendsItem";
 import SectionTitle from "../../../../components/SectionTitle";
 import useMenu from "../../../../hoocks/useMenu";

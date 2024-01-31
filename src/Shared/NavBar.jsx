@@ -2,12 +2,16 @@ import { NavLink, Outlet } from "react-router-dom";
 import './Navber/navbar.css'
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaCartShopping } from "react-icons/fa6";
+import useCarts from "../hoocks/useCarts";
 
 
 
 const NavBar = () => {
 
     const {user,logOut} = useContext(AuthContext)
+
+    const [carts] = useCarts()
 
 
     const handleLogOut = () =>{
@@ -21,6 +25,14 @@ const NavBar = () => {
     <li className="mx-2 uppercase"><NavLink to={'/dashboard'} className=''>DASHBOARD</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/menu'} className=''>Our Menu</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/shop/offered'} className=''>Our Shop</NavLink></li>
+    <li className="mx-2 uppercase"><NavLink to={'/dashboard'} className=''>
+    <div className="indicator">
+    <FaCartShopping className="text-2xl"/>
+          <span className="badge  indicator-item bg-[#ff1100e7] text-primary-text ">{
+          carts?.data?.length
+          }</span>
+        </div>
+        </NavLink></li>
     {
         user?.email ? <li className="mx-2 uppercase "><div className="flex"><p>{user?.displayName}</p><button onClick={handleLogOut}>Log Out</button></div></li>:
         <li className="mx-2 uppercase"><NavLink to={'/signUp'} className=''>SIGN UP</NavLink></li>
