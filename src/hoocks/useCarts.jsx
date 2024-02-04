@@ -10,7 +10,6 @@ const useCarts = () => {
         queryKey:['carts', user?.email],
         queryFn: () => axiosSecure.get(`/carts?email=${user?.email}`)
             
-        
     })
     return [carts ,refetch]
 

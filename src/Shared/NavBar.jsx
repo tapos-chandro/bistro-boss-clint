@@ -22,10 +22,10 @@ const NavBar = () => {
     
     <li className="mx-2 uppercase"><NavLink to={'/'} className=''>Home</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/contact'} className=''>CONTACT us</NavLink></li>
-    <li className="mx-2 uppercase"><NavLink to={'/dashboard'} className=''>DASHBOARD</NavLink></li>
+    <li className="mx-2 uppercase"><NavLink to={'/dashboard/home'} className=''>DASHBOARD</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/menu'} className=''>Our Menu</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/shop/offered'} className=''>Our Shop</NavLink></li>
-    <li className="mx-2 uppercase"><NavLink to={'/dashboard'} className=''>
+    <li className="mx-2 uppercase"><NavLink to={'/dashboard/manageItems'} className=''>
     <div className="indicator">
     <FaCartShopping className="text-2xl"/>
           <span className="badge  indicator-item bg-[#ff1100e7] text-primary-text ">{
@@ -48,7 +48,7 @@ const NavBar = () => {
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
-            <div className="drawer-content flex flex-col ">
+            <div className="flex flex-col drawer-content ">
                 {/* Navbar */}
                 <div className=" navbar bg-[#15151580] z-40 text-primary-text fixed container ">
                 <div className="flex-none lg:hidden">
@@ -58,7 +58,7 @@ const NavBar = () => {
                 </div> 
                 <div className="flex-1 px-2 mx-2">
                     <div className="uppercase">
-                    <span className="lg:text-3xl font-extrabold text-primary-text">BISTRO BOSS</span><br></br> <span className="lg:text-2xl text-primary-text tracking-[8px]">Restaurant</span>
+                    <span className="font-extrabold lg:text-3xl text-primary-text">BISTRO BOSS</span><br></br> <span className="lg:text-2xl text-primary-text tracking-[8px]">Restaurant</span>
                     </div>
                 </div>
                 <div className="flex-none hidden lg:block ">
@@ -73,9 +73,9 @@ const NavBar = () => {
                 {/* Page content here */}
                 <Outlet></Outlet>
             </div> 
-            <div className="drawer-side z-50">
+            <div className="z-50 drawer-side">
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label> 
-                <ul className="menu p-4 w-80 min-h-full bg-neutral-700 text-primary-text">
+                <ul className="min-h-full p-4 menu w-80 bg-neutral-700 text-primary-text">
                 {/* Sidebar content here */}
                 {navLinks}
                 </ul>
