@@ -20,6 +20,7 @@ const Menu = () => {
   const salad = menu.filter(item => item.category === 'salad')
   const soup = menu.filter(item => item.category === 'soup')
   const drinks = menu.filter(item => item.category === 'drinks')
+  const dessert = menu.filter(item => item.category === 'desserts')
   
 
 
@@ -43,7 +44,7 @@ const Menu = () => {
 
       <div className="mt-20">
         <Cover backgroundImg={dessertCoverBg} heading='DESSERTS'  bgColor='#15151599' fontColor='#fff' paragraph={desserts}></Cover>
-        <MenuCategory items={offered} buttonText='ORDER YOUR FAVORITE FOOD' title='desserts'></MenuCategory>
+        <MenuCategory items={dessert} buttonText='ORDER YOUR FAVORITE FOOD' title='desserts'></MenuCategory>
       </div>
       <div className="mt-20">
         <Cover backgroundImg={pizzaCoverBg} heading='PIZZA'  bgColor='#15151599' fontColor='#fff' paragraph={pizzaCoverText}></Cover>

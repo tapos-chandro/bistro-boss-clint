@@ -6,8 +6,23 @@ import { FaBook } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 import { MdShoppingBag } from "react-icons/md";
 import { MdForwardToInbox } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import useAdmin from "../hoocks/useAdmin";
+import { SlCalender } from "react-icons/sl";
+import { MdPayment } from "react-icons/md";
+import { FaShoppingCart } from "react-icons/fa";
+import { FaAddressCard } from "react-icons/fa";
+import { TbBrandBooking } from "react-icons/tb";
+
+
+
 
 const Dashboard = () => {
+    
+
+    const [isAdmin] = useAdmin()
+
+
   return (
     <div className='container px-5 mx-auto lg:px-0 '>
       <div className="lg:flex">
@@ -16,7 +31,8 @@ const Dashboard = () => {
             <Link to={'/dashboard/home'} ><span className="text-[#151515] text-2xl font-black">BISTRO BOSS</span><br/><span className="text-lg font-bold uppercase tracking-[6.647px] text-[#151515]">Restaurant</span></Link>
             </div>
             <div>
-            <ul className="menu text-[#151515] rounded-box uppercase py-5">
+            {
+                isAdmin ?<ul className="menu text-[#151515] rounded-box uppercase py-5">
                 <li className="my-1">
                     <NavLink to={'/dashboard/home'} >
                     <AiFillHome  className="text-2xl" />
@@ -39,7 +55,49 @@ const Dashboard = () => {
                     <FaBook  className="text-2xl"/>
                     Manage bookings</NavLink>
                 </li>
+                <li className="my-1">
+                    <NavLink to={'/dashboard/allUser'} >
+                    <FaUsers  className="text-2xl"></FaUsers>
+                    All Users</NavLink>
+                </li>
             </ul>
+            : 
+            <ul className="menu text-[#151515] rounded-box uppercase py-5">
+            <li className="my-1">
+                <NavLink to={'/dashboard/home'} >
+                <AiFillHome  className="text-2xl" />
+                User Home
+                </NavLink>
+            </li>
+            <li className="my-1">
+                <NavLink to={'/dashboard/addItems'} >
+                {/* <FaUtensils /> */}
+                <SlCalender className="text-2xl"/>
+                reservation
+                </NavLink>
+            </li>
+            <li className="my-1">
+                <NavLink to={'/dashboard/manageItems'} >
+                <MdPayment className="text-2xl"/>
+                payment history</NavLink>
+            </li>
+            <li className="my-1">
+                <NavLink to={'/dashboard/manageItems'} >
+                <FaShoppingCart className="text-2xl"/>
+                my cart</NavLink>
+            </li>
+            <li className="my-1">
+                <NavLink to={'/dashboard/booking'} >
+                <FaAddressCard className="text-2xl"/>
+                add review</NavLink>
+            </li>
+            <li className="my-1">
+                <NavLink to={'/dashboard/allUser'} >
+                <TbBrandBooking className="text-2xl" />
+                my booking</NavLink>
+            </li>
+        </ul>
+            }
             <hr />
 
             </div>

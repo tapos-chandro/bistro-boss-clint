@@ -4,17 +4,21 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from "react-simple-captcha";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../hoocks/useAxiosPublic";
 
 
 const Login = () => {
-    const { register, handleSubmit,formState: { errors },} = useForm()
-    const captchaRef = useRef()
-    const [disabled, setDisabled] = useState(true)
-    const location = useLocation()
-    console.log(location)
-    const navigate = useNavigate()
-    const {googleSignUp , logInUser} = useContext(AuthContext)
-    const [error, setError] = useState('')
+    const { register, handleSubmit,formState: { errors },} = useForm();
+    const captchaRef = useRef();
+    const [disabled, setDisabled] = useState(true);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const {googleSignUp , logInUser} = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const axiosPublic = useAxiosPublic()
+
+
+
     useEffect(() => {
         loadCaptchaEnginge(6)
     },[])
@@ -27,9 +31,6 @@ const Login = () => {
             setDisabled(false)
        }else{
         setDisabled(true)
-
-    
-
        }
 
     }
@@ -61,9 +62,25 @@ const Login = () => {
     const handleGoogleLogin = () =>{
         googleSignUp()
         .then(result => {
+
+
+            const loginUser = {
+                name: result?.user?.displayName,
+                email:result?.user?.email
+            }
+            console.log(loginUser)
+
+           axiosPublic.post('/users', loginUser)
+           .then(result => {
+            console.log(result)
+           })
+
+        
+
             if(result){
                 navigate('/shop/offered')
             }
+
         })
         
     }
@@ -73,12 +90,12 @@ const Login = () => {
         
 
         <div className="bg-login-bg">
-            <div className="hero min-h-screen container mx-auto py-20">
-                <div className="hero-content flex-col lg:flex-row">
+            <div className="container min-h-screen py-20 mx-auto hero">
+                <div className="flex-col hero-content lg:flex-row">
                     <div className="text-center lg:text-left">
                         <img src='https://i.postimg.cc/1twpfzqJ/authentication2.png' alt="" />
                     </div>
-                    <div className="card shrink-0 w-full max-w-sm">
+                    <div className="w-full max-w-sm card shrink-0">
                     <h1 className="text-center mt-8 text-[#151515] text-3xl font-bold">Login</h1>
                     <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control">
@@ -100,20 +117,20 @@ const Login = () => {
                         <div>
                             
                         <LoadCanvasTemplate />
-                        <input type="text" placeholder="text" className="input input-bordered my-3 w-full" name='captcha' ref={captchaRef}  onBlur={handleCaptcha} required />
+                        <input type="text" placeholder="text" className="w-full my-3 input input-bordered" name='captcha' ref={captchaRef}  onBlur={handleCaptcha} required />
                         </div>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="mt-6 form-control">
                             <button className="btn bg-[#D1A054B2] text-primary-text hover:text-[black]" disabled={disabled} >Sign in</button>
                         </div>
                         <div>
                             <p className="text-[#D1A054]">New here? <Link to={'/signUp'}><span className="font-bold">Create a New Account</span></Link></p>
                         </div>
                     </form>
-                    <div className="text-center flex justify-center pb-10 ">
+                    <div className="flex justify-center pb-10 text-center ">
                     <FcGoogle className="text-4xl hover:cursor-pointer" onClick={handleGoogleLogin}/>
                     </div>
                     </div>

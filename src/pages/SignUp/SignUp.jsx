@@ -4,6 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
+import useAxiosPublic from "../../hoocks/useAxiosPublic";
 // import Swal from "sweetalert2";
 // import { v4 } from "uuid";
 
@@ -15,6 +16,7 @@ const SignUp = () => {
 
     const [error, setError] = useState('')
     const navigate = useNavigate()
+    const axiosPublic = useAxiosPublic()
 
     // setError('')
     const onSubmit = (data) =>{
@@ -26,6 +28,20 @@ const SignUp = () => {
             // Signed up 
             const user = userCredential.user;
             console.log(user)
+
+
+            const loginUser = {
+                name: data?.name,
+                email:data?.email
+            }
+
+           axiosPublic.post('/users', loginUser)
+           .then(result => {
+            console.log(result)
+           })
+
+
+
 
             updateUserProfile(data.name)
 
@@ -76,6 +92,21 @@ const SignUp = () => {
     const handleGoogleLogin = () =>{
         googleSignUp()
           .then(result => {
+
+
+
+            const loginUser = {
+                name: result?.user?.displayName,
+                email:result?.user?.email
+            }
+            console.log(loginUser)
+
+           axiosPublic.post('/users', loginUser)
+           .then(result => {
+            console.log(result)
+           })
+
+
             if(result){
                 navigate('/shop/offered')
             }
@@ -84,13 +115,13 @@ const SignUp = () => {
 
 
     return (
-        <div className="bg-login-bg py-20 lg:h-screen">
-            <div className="hero shadow-xl container mx-auto ">
-                <div className="hero-content flex-col lg:flex-row">
+        <div className="py-20 bg-login-bg lg:h-screen">
+            <div className="container mx-auto shadow-xl hero ">
+                <div className="flex-col hero-content lg:flex-row">
                     <div className="text-center lg:text-left">
                         <img src='https://i.postimg.cc/1twpfzqJ/authentication2.png' alt="" />
                     </div>
-                    <div className="card shrink-0 w-full max-w-sm ">
+                    <div className="w-full max-w-sm card shrink-0 ">
                     <h1 className="text-center mt-8 text-[#151515] text-3xl font-bold">Sign Up</h1>
                     <form className="card-body " onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control">
@@ -122,14 +153,14 @@ const SignUp = () => {
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="mt-6 form-control">
                             <input type="submit" value="Sign in" className="btn bg-[#D1A054B2] text-primary-text hover:text-[black]" />
                         </div>
                         <div className="text-center">
                             <span className="text-[#D1A054] text-center">Already registered? <Link to={'/login'} className="font-bold"> Go to login</Link></span>
                         </div>
                     </form>
-                    <div className="text-center flex justify-center pb-10 ">
+                    <div className="flex justify-center pb-10 text-center ">
                     <FcGoogle className="text-4xl hover:cursor-pointer" onClick={handleGoogleLogin}/>
                     </div>
                     </div>

@@ -12,6 +12,8 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import ManageBookings from "../pages/Dashboard/ManageBookings/ManageBookings";
 import AddItems from "../pages/Dashboard/AddItems/AddItems";
 import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
+import AllUser from "../pages/Dashboard/AllUser/AllUser";
+
 
 
 
@@ -56,7 +58,7 @@ export const router = createBrowserRouter([
     },
     {
       path:"/dashboard",
-      element:<Dashboard></Dashboard>,
+      element:<PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
       children:[
         {
           path:"manageItems",
@@ -73,6 +75,10 @@ export const router = createBrowserRouter([
         {
           path:"addItems",
           element:<AddItems></AddItems>
+        },
+        {
+          path:"allUser",
+          element:<AllUser></AllUser>
         },
       ]
     }

@@ -11,34 +11,42 @@ const ManageItems = () => {
     const axiosSecure = useAxiosSecure()
 
     const handleDelateItems = (_id) =>{
-        
-        axiosSecure.delete(`/carts?id=${_id}`)
-        .then(res => {
+
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
             
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-              }).then((result) => {
+
+            if(result.isConfirmed){
+                axiosSecure.delete(`/carts?id=${_id}`)
+            .then(res => {
                 
-
-
                 if(res?.data.acknowledged == true){
                     if (result.isConfirmed) {
                         Swal.fire({
-                          title: "Deleted!",
-                          text: "Your file has been deleted.",
-                          icon: "success"
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
                         });
-                      }
-                      refetch()
+                    }
+                    refetch()
                 }
-              });
-        })
+            })
+            }
+
+            
+          });
+
+
+        
+        
 
     }
 
