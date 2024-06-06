@@ -2,12 +2,13 @@ import PropTypes from "prop-types"
 import { MagnifyingGlass } from 'react-loader-spinner'
 import useAdmin from '../hoocks/useAdmin'
 import useAuth from '../hoocks/useAuth'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth()
   const [isAdmin, isAdminLoading] = useAdmin()
   console.log('admin router',isAdminLoading)
+  const location = useLocation()
 
 
   if (loading) {
@@ -27,6 +28,7 @@ const AdminRoute = ({ children }) => {
     )
     
   }
+  console.log(isAdmin,'admin check')
 
   if (user?.email && isAdmin) {
     return children

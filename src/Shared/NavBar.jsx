@@ -25,7 +25,7 @@ const NavBar = () => {
     <li className="mx-2 uppercase"><NavLink to={'/dashboard/home'} className=''>DASHBOARD</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/menu'} className=''>Our Menu</NavLink></li>
     <li className="mx-2 uppercase"><NavLink to={'/shop/offered'} className=''>Our Shop</NavLink></li>
-    <li className="mx-2 uppercase"><NavLink to={'/dashboard/manageItems'} className=''>
+    <li className="mx-2 uppercase"><NavLink to={'/dashboard/myCart'} className=''>
     <div className="indicator">
     <FaCartShopping className="text-2xl"/>
           <span className="badge  indicator-item bg-[#ff1100e7] text-primary-text ">{

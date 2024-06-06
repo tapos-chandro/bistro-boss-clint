@@ -13,6 +13,13 @@ import ManageBookings from "../pages/Dashboard/ManageBookings/ManageBookings";
 import AddItems from "../pages/Dashboard/AddItems/AddItems";
 import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import AllUser from "../pages/Dashboard/AllUser/AllUser";
+import UpdateItems from "../pages/Dashboard/ManageItems/UpdateItems/UpdateItems";
+import MyCards from "../pages/Dashboard/MyCarts/MyCarts";
+import MyCarts from "../pages/Dashboard/MyCarts/MyCarts";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentSuccess from "../pages/Dashboard/PaymentSuccess/PaymentSuccess";
+import MyOrders from "../pages/Dashboard/MyOrders/MyOrders";
+
 
 
 
@@ -77,9 +84,27 @@ export const router = createBrowserRouter([
           element:<AddItems></AddItems>
         },
         {
-          path:"allUser",
-          element:<AllUser></AllUser>
+          path:"updateItem/:id",
+          element:<UpdateItems></UpdateItems>
         },
+        {
+          path:"myCart",
+          element:<MyCarts></MyCarts>
+        },
+        {
+          path:"reservation",
+          element:<Payment></Payment>
+        },
+        {
+          path:"successPay/:tranId",
+          element:<PaymentSuccess></PaymentSuccess>
+        },
+        {
+          path:"myOrders",
+          element:<MyOrders></MyOrders>
+        }
+        
+
       ]
     }
   ]);

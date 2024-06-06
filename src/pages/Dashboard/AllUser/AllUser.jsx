@@ -10,7 +10,7 @@ const AllUser = () => {
 
     const axiosSecure = useAxiosSecure()
 
-    const {isPending, error, data:user, refetch} = useQuery({
+    const { data:user, refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
@@ -85,7 +85,7 @@ const AllUser = () => {
                             <tr key={dashboardCart.email}>
                                 
                                 <td className="text-xl font-bold">
-                                {index}
+                                {index + 1}
                                 </td>
                                 <td className="text-center">
                                 {dashboardCart.name}

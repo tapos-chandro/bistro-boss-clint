@@ -20,7 +20,7 @@ const Menu = () => {
   const salad = menu.filter(item => item.category === 'salad')
   const soup = menu.filter(item => item.category === 'soup')
   const drinks = menu.filter(item => item.category === 'drinks')
-  const dessert = menu.filter(item => item.category === 'desserts')
+  const dessert = menu.filter(item => item.category === 'dessert')
   
 
 

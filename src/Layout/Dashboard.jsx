@@ -70,21 +70,16 @@ const Dashboard = () => {
                 </NavLink>
             </li>
             <li className="my-1">
-                <NavLink to={'/dashboard/addItems'} >
+                <NavLink to={'/dashboard/reservation'} >
                 {/* <FaUtensils /> */}
                 <SlCalender className="text-2xl"/>
                 reservation
                 </NavLink>
             </li>
             <li className="my-1">
-                <NavLink to={'/dashboard/manageItems'} >
-                <MdPayment className="text-2xl"/>
-                payment history</NavLink>
-            </li>
-            <li className="my-1">
-                <NavLink to={'/dashboard/manageItems'} >
+                <NavLink to={'/dashboard/myCart'} >
                 <FaShoppingCart className="text-2xl"/>
-                my cart</NavLink>
+                My cart</NavLink>
             </li>
             <li className="my-1">
                 <NavLink to={'/dashboard/booking'} >
@@ -92,9 +87,9 @@ const Dashboard = () => {
                 add review</NavLink>
             </li>
             <li className="my-1">
-                <NavLink to={'/dashboard/allUser'} >
+                <NavLink to={'/dashboard/myOrders'} >
                 <TbBrandBooking className="text-2xl" />
-                my booking</NavLink>
+                My Orders</NavLink>
             </li>
         </ul>
             }

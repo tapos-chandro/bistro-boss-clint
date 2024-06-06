@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+
 import useAxiosPublic from "./useAxiosPublic";
 
 
@@ -18,7 +18,7 @@ const useMenu = () => {
     const axiosPublic = useAxiosPublic()
 
 
-    const { isPending, error, data:menu , refetch} = useQuery({
+    const { isPending,  data:menu , refetch} = useQuery({
         queryKey: ['menu'],
         queryFn: () =>
           axiosPublic.get('/menu').then(res =>
